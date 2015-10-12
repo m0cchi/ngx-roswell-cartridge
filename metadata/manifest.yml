@@ -1,8 +1,8 @@
-Name: roswell
+Name: ngxroswell
 Source-Url: git@github.com:mocchit/roswell-cartridge.git
 
 Cartridge-Short-Name: roswell
-Cartridge-Version: '0.0.3'
+Cartridge-Version: '0.0.4'
 Cartridge-Vendor: mocchi
 
 Display-Name: Roswell
@@ -26,6 +26,8 @@ Endpoints:
   - Private-IP-Name:   HTTP_IP
     Private-Port-Name: HTTP_PORT
     Private-Port:      8080
+    Private-Port-Name: APP_PORT
+    Private-Port:      8081
     Public-Port-Name:  PROXY_HTTP_PORT
     Mappings:
       - Frontend:      ""
