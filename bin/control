@@ -3,7 +3,8 @@
 function start() {
   echo "Starting CL application"
   if [ -e "${OPENSHIFT_ROSWELL_DIR}/bin/ros" ] ; then
-    PATH=${OPENSHIFT_ROSWELL_DIR}/bin:$PATH HOME=${OPENSHIFT_ROSWELL_DIR}/home ${OPENSHIFT_REPO_DIR}/bootstrap.ros &>> ${OPENSHIFT_ROSWELL_DIR}/log/sbcl-cartridge.log
+    cd ${OPENSHIFT_REPO_DIR}
+    PATH=${OPENSHIFT_ROSWELL_DIR}/bin:$PATH HOME=${OPENSHIFT_ROSWELL_DIR}/home ./bootstrap.ros &>> ${OPENSHIFT_ROSWELL_DIR}/log/sbcl-cartridge.log
     echo $! > ${OPENSHIFT_ROSWELL_DIR}/roswll.pid
   fi
   return 0
