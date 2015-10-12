@@ -13,5 +13,5 @@ exec ros -Q -- $0 "$@"
   (woo:run #'myapp:app
            :address (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_IP")
                         "0.0.0.0")
-           :port (parse-integer (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_PORT")
+           :port (parse-integer (or (uiop:getenv "APP_PORT")
                                     "5000"))))
