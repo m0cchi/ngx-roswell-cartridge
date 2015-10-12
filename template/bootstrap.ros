@@ -3,5 +3,8 @@
 #|
 exec ros -Q -- $0 "$@"
 |#
+
+(ql:quickload :clack)
+(require 'myapp "./myapp.lisp")
 (defun main (&rest argv)
-  (princ "bootstrap"))
+  (clack:clackup #'myapp:app))
