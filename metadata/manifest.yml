@@ -8,8 +8,8 @@ Cartridge-Vendor: mocchi
 Display-Name: SBCL
 Description: SBCL for all
 
-#Version: '1.2.16'
-#Website: http://www.sbcl.org/
+Version: '1.2.16'
+Website: http://www.sbcl.org/
 
 Categories:
   - service
