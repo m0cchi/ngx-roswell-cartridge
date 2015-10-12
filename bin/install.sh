@@ -7,6 +7,7 @@ export ROSWELL_HOME=$HOME
 
 cd $OPENSHIFT_ROSWELL_DIR
 mkdir temp
+cd temp
 wget ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
 tar zxvf autoconf-2.69.tar.gz
 cd autoconf-2.69
