@@ -5,6 +5,12 @@ exec ros -Q -- $0 "$@"
 |#
 
 (ql:quickload :clack)
+(ql:quickload :uiop)
+
 (require 'myapp "./myapp.lisp")
 (defun main (&rest argv)
-  (clack:clackup #'myapp:app))
+  (clack:clackup #'myapp:app
+                 :host (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_IP")
+                           "0.0.0.0")
+                 :port (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_PORT")
+                           5000)))
