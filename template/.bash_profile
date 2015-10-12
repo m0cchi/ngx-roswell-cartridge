@@ -1,1 +1,1 @@
-alias ros="HOME=$ROSWELL_HOME ros"
+alias ros="PATH=${OPENSHIFT_ROSWELL_DIR}/bin:$PATH HOME=${OPENSHIFT_ROSWELL_DIR}/home ros"
