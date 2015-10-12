@@ -2,14 +2,14 @@ Name: sbcl
 Source-Url: git@github.com:mocchit/sbcl-with-roswell-cartridge.git
 
 Cartridge-Short-Name: sbcl
-Cartridge-Version: '0.0.1'
+Cartridge-Version: '0.0.2'
 Cartridge-Vendor: mocchi
 
 Display-Name: SBCL
-Description: SBCL for all
+Description: SBCL with Roswell
 
-Version: '1.2.16'
-Website: http://www.sbcl.org/
+Version: 'HEAD'
+Website: https://github.com/snmsts/roswell
 
 Categories:
   - service
