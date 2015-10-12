@@ -5,7 +5,7 @@ Cartridge-Short-Name: roswell
 Cartridge-Version: '0.0.4'
 Cartridge-Vendor: mocchi
 
-Display-Name: Roswell
+Display-Name: Roswell + NGINX
 Description: Roswell
 
 Version: '0.0.3.49'
