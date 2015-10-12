@@ -1,12 +1,12 @@
-Name: sbcl
-Source-Url: git@github.com:mocchit/sbcl-with-roswell-cartridge.git
+Name: roswell
+Source-Url: git@github.com:mocchit/roswell-cartridge.git
 
-Cartridge-Short-Name: sbcl
-Cartridge-Version: '0.0.2'
+Cartridge-Short-Name: roswell
+Cartridge-Version: '0.0.3'
 Cartridge-Vendor: mocchi
 
-Display-Name: SBCL
-Description: SBCL with Roswell
+Display-Name: Roswell
+Description: Roswell
 
 Version: '0.0.3.49'
 Website: https://github.com/snmsts/roswell
@@ -16,7 +16,7 @@ Categories:
   - web_framework
 
 Provides:
-- sbcl
+- roswell
 
 Scaling:
   Min: 1

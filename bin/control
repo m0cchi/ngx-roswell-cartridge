@@ -1,33 +1,33 @@
 #!/usr/bin/env bash
 
 function start() {
-  echo "Starting sbcl application"
-  if [ -e "${OPENSHIFT_SBCL_DIR}/bin/ros" ] ; then
-    PATH=${OPENSHIFT_SBCL_DIR}/bin:$PATH HOME=$OPENSHIFT_SBCL_DIR/home $OPENSHIFT_REPO_DIR/bootstrap.ros &>> $OPENSHIFT_SBCL_DIR/log/sbcl-cartridge.log
-    echo $! > ${OPENSHIFT_SBCL_DIR}/sbcl.pid
+  echo "Starting CL application"
+  if [ -e "${OPENSHIFT_ROSWELL_DIR}/bin/ros" ] ; then
+    PATH=${OPENSHIFT_ROSWELL_DIR}/bin:$PATH HOME=${OPENSHIFT_ROSWELL_DIR}/home ${OPENSHIFT_REPO_DIR}/bootstrap.ros &>> ${OPENSHIFT_ROSWELL_DIR}/log/sbcl-cartridge.log
+    echo $! > ${OPENSHIFT_ROSWELL_DIR}/roswll.pid
   fi
   return 0
 }
 
 function stop() {
-  pid=`cat ${OPENSHIFT_SBCL_DIR}/sbcl.pid`
+  pid=`cat ${OPENSHIFT_ROSWELL_DIR}/roswell.pid`
   kill -0 $pid && kill -15 $pid
   pkill ros
   return 0
 }
 
 function status(){
-  pid=`cat ${OPENSHIFT_SBCL_DIR}/sbcl.pid`
+  pid=`cat ${OPENSHIFT_ROSWELL_DIR}/roswll.pid`
   return `kill -0 $pid`
 }
 
 function restart(){
-  if [ -e "${OPENSHIFT_SBCL_DIR}/bin/ros" ] ; then
+  if [ -e "${OPENSHIFT_ROSWELL_DIR}/bin/ros" ] ; then
     stop
     start
     return 0
   else
-    nohup $OPENSHIFT_SBCL_DIR/bin/setup &
+    nohup $OPENSHIFT_ROSWELL_DIR/bin/setup &
     return 1
   fi
 }

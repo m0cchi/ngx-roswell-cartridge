@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup $OPENSHIFT_SBCL_DIR/bin/install.sh 2>&1 $OPENSHIFT_SBCL_DIR/log/install.log &
+nohup $OPENSHIFT_ROSWELL_DIR/bin/install.sh 2>&1 $OPENSHIFT_ROSWELL_DIR/log/install.log &
