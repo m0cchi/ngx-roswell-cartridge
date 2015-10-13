@@ -14,8 +14,8 @@ function start() {
 function stop() {
   pid=`cat ${OPENSHIFT_ROSWELL_DIR}/roswell.pid`
   kill -0 $pid && kill -15 $pid
-  pkill -f nginx
-  pkill -f ros
+  pkill -KILL -f nginx
+  pkill -KILL -f ros
   return 0
 }
 
