@@ -27,12 +27,12 @@ cd ../
 wget http://nginx.org/download/nginx-1.9.5.tar.gz
 tar zxvf nginx-1.9.5.tar.gz
 cd nginx-1.9.5
-./configure --prefix=$HOME/roswell/ --without-http_rewrite_module
+./configure --prefix=$OPENSHIFT_ROSWELL_DIR --without-http_rewrite_module
 make
 make install
 
 cd ../../
 cp nginx.conf conf/nginx.conf
-sed -ie "s/        listen       80;/        listen       $OPENSHIFT_ROSWELL_HTTP_IP:$OPENSHIFT_ROSWELL_HTTP_PORT;/g" conf/nginx.conf 
+sed -ie "s/        listen       80;/        listen       $OPENSHIFT_ROSWELL_NGINX_IP:$OPENSHIFT_ROSWELL_NGINX_PORT;/g" conf/nginx.conf 
 sed -ie "s/            root   html;//g" conf/nginx.conf
-sed -ie "s/            index  index.html index.htm;/            proxy_pass http:\/\/$OPENSHIFT_ROSWELL_HTTP_IP:$APP_PORT;/g" conf/nginx.conf
+sed -ie "s/            index  index.html index.htm;/            proxy_pass http:\/\/$OPENSHIFT_ROSWELL_NGINX_IP:$OPENSHIFT_ROSWELL_NGINX_PORT;/g" conf/nginx.conf

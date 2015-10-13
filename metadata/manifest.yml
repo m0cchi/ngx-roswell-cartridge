@@ -26,10 +26,17 @@ Endpoints:
   - Private-IP-Name:   HTTP_IP
     Private-Port-Name: HTTP_PORT
     Private-Port:      8080
-    Private-Port-Name: APP_PORT
-    Private-Port:      8081
     Public-Port-Name:  PROXY_HTTP_PORT
     Mappings:
       - Frontend:      ""
         Backend:       ""
         Options:       { websocket: false }
+  - Private-IP-Name:   NGINX_IP
+    Private-Port-Name: NGINX_PORT
+    Private-Port:      8081
+    Public-Port-Name:  PROXY_APP_PORT
+    Mappings:
+      - Frontend:      ""
+        Backend:       ""
+        Options:       { websocket: false }
+
