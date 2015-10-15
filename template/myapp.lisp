@@ -1,15 +1,10 @@
 (provide 'myapp)
-
 (defpackage myapp
-  (:use common-lisp)
-  (:export app))
+  (:use :common-lisp)
+  (:export *app*))
+(in-package :myapp)
 
-(in-package myapp)
+(defvar *app* (make-instance 'ningle:<app>))
 
-(defun app (env)
-  (cond
-    ((string= (getf env :path-info) "/")
-     '(200
-       (:content-type "text/html")
-       ("Hello, roswell-cartridge!")))
-    (t '(404 (:content-type "text/plain") ("Not found")))))
+(setf (ningle:route *app* "/")
+      "Welcome to ningle!")

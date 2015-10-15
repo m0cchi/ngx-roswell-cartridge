@@ -4,14 +4,22 @@
 exec ros -Q -- $0 "$@"
 |#
 
-(ql:quickload :uiop)
-(ql:quickload :woo)
+(ql:quickload '(:uiop
+                :woo
+                :clack
+                :ningle)
+              :silent t)
 
 (require 'myapp "./myapp.lisp")
+(require 'clack.handler.owoo "./owoo-handler.lisp")
+
 (defun main (&rest argv)
   (declare (ignore argv))
-  (woo:run #'myapp:app
-           :address (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_IP")
-                        "0.0.0.0")
-           :port (parse-integer (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_PORT")
+  (setq clack.handler.owoo:*address*
+        (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_IP")
+            "0.0.0.0"))
+  (setq clack.handler.owoo:*worker-num* 3)
+  (clack:clackup myapp:*app*
+                 :server :owoo
+                 :port (parse-integer (or (uiop:getenv "OPENSHIFT_ROSWELL_HTTP_PORT")
                                     "5000"))))
