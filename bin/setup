@@ -1,3 +1,3 @@
 #!/bin/bash
 mv $OPENSHIFT_ROSWELL_DIR/.bash_profile $OPENSHIFT_DATA_DIR
-nohup $OPENSHIFT_ROSWELL_DIR/bin/install.sh 2>&1 $OPENSHIFT_ROSWELL_DIR/log/install.log &
+nohup $OPENSHIFT_ROSWELL_DIR/bin/install.sh &> $OPENSHIFT_ROSWELL_DIR/log/install.log

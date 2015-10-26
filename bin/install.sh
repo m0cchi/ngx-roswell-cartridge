@@ -22,6 +22,7 @@ sh bootstrap
 make && make install
 ros setup
 ros install sbcl-bin
+ros install clack
 
 cd ../
 wget http://nginx.org/download/nginx-1.9.5.tar.gz

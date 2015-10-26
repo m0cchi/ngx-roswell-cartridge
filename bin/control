@@ -5,7 +5,14 @@ function start() {
   if [ -e "${OPENSHIFT_ROSWELL_DIR}/bin/ros" ] ; then
     PATH=${OPENSHIFT_ROSWELL_DIR}/sbin:$PATH nginx
     cd ${OPENSHIFT_REPO_DIR}
-    PATH=${OPENSHIFT_ROSWELL_DIR}/bin:$PATH HOME=${OPENSHIFT_ROSWELL_DIR}/home ./bootstrap.ros >> ${OPENSHIFT_ROSWELL_DIR}/log/roswell-cartridge.log &
+    PATH=${OPENSHIFT_ROSWELL_DIR}/home/.roswell/bin:${OPENSHIFT_ROSWELL_DIR}/bin:$PATH \
+        HOME=${OPENSHIFT_ROSWELL_DIR}/home \
+        clackup --server :fcgi \
+        --worker-num 4 \
+        --address $OPENSHIFT_ROSWELL_HTTP_IP \
+        --port $OPENSHIFT_ROSWELL_HTTP_PORT \
+        --debug nil \
+        ${OPENSHIFT_REPO_DIR}/app.lisp  >> ${OPENSHIFT_ROSWELL_DIR}/log/roswell-cartridge.log &
     echo $! > ${OPENSHIFT_ROSWELL_DIR}/roswell.pid
   fi
   return 0
